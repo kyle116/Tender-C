@@ -6,6 +6,16 @@ import SignUp from './components/SignUp';
 import axios from 'axios';
 
 class App extends Component {
+  state = {
+    currentUser: auth.getCurrentUser()
+  }
+
+  setCurrentUser() {
+    this.setState({
+      currentUser: auth.getCurrentUser()
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -14,6 +24,9 @@ class App extends Component {
           <NavBar />
         </div>
         <Route path="/signup" component={SignUp} />
+        <Route path="/login" render={() => (
+          <SignIn onSignIn={this.setCurrentUser.bind(this)} />
+        )} />
       </div>
       </Router>
     );

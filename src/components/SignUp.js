@@ -10,20 +10,20 @@ class SignUp extends Component {
 
   handleFormSubmit(e){
     e.preventDefault()
-    if(this.refs.password.value === this.refs.confirmPassword.value ){
-    const formData = {
-      name: this.refs.name.value,
-      email: this.refs.email.value,
-      password: this.refs.password.value
-    }
-    console.log('Kyle and Brad are making your account right now.')
-    console.log(formData)
-    auth.signUp(formData).then(success => {
-      if(success) this.setState({shouldRedirect: true})
-    })
-  } else {
-    console.log('your mom.')
-  }
+      if(this.refs.password.value === this.refs.confirmPassword.value ) {
+        const formData = {
+          name: this.refs.name.value,
+          email: this.refs.email.value,
+          password: this.refs.password.value
+        }
+        console.log('Kyle and Brad are making your account right now.')
+        console.log(formData)
+        auth.signUp(formData).then(success => {
+          if(success) this.setState({shouldRedirect: true})
+        })
+      } else {
+        console.log('your mom.')
+      }
   }
 
 
