@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import auth from '../auth';
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -29,16 +30,18 @@ class SignUp extends Component {
 
   render(){
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={this.handleFormSubmit.bind(this)}>
-          <input ref="name" type="text" placeholder="Name" />
-          <input ref="email" type="text" placeholder="Email" />
-          <input ref="password" type="password" placeholder="Password" />
-          <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
-          <button>Sign Up!</button>
-        </form>
-      </div>
+      this.state.shouldRedirect ? <Redirect to="/content" /> :
+        (<div>
+          <h1>Sign Up</h1>
+          <form onSubmit={this.handleFormSubmit.bind(this)}>
+            <input ref="name" type="text" placeholder="Name" />
+            <input ref="email" type="text" placeholder="Email" />
+            <input ref="password" type="password" placeholder="Password" />
+            <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
+            <button>Sign Up!</button>
+          </form>
+        </div>
+      )
     )
   }
 }
