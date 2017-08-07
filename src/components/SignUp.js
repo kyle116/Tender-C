@@ -29,13 +29,16 @@ class SignUp extends Component {
 
   render(){
     return (
-      <form onSubmit={this.handleFormSubmit.bind(this)}>
-        <input ref="name" type="text" placeholder="Name" />
-        <input ref="email" type="text" placeholder="Email" />
-        <input ref="password" type="password" placeholder="Password" />
-        <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
-        <button>Sign Up!</button>
-      </form>
+      <div>
+        <h1>Sign Up</h1>
+        <form onSubmit={this.handleFormSubmit.bind(this)}>
+          <input ref="name" type="text" placeholder="Name" />
+          <input ref="email" type="text" placeholder="Email" />
+          <input ref="password" type="password" placeholder="Password" />
+          <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
+          <button>Sign Up!</button>
+        </form>
+      </div>
     )
   }
 }

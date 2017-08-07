@@ -25,7 +25,7 @@ class SignIn extends Component {
   render() {
     return (
       this.state.shouldRedirect
-      ? <Redirect to='/' />
+      ? <Redirect to='/content' />
       : (
         <div className="LogIn">
           <h1>Sign In</h1>
