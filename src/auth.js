@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 class AuthClient {
   constructor(){
     this.request = axios.create({
-      baseURL: 'https://polar-inlet-28677.herokuapp.com',
+      baseURL: 'http://localhost:3001',
       headers: {
         common: {
           token: this.getToken()
@@ -13,21 +13,19 @@ class AuthClient {
     })
   }
 
-  getYelpInfo(){
-    return this.request({method: 'GET', url: '/yelp'})
-      .then((response) => response.data)
-  }
+getYelpInfo(){
+  return this.request({method: 'GET', url: '/yelp'})
+    .then((response) => response.data)
+}
+addBusinessList(businessData) {
+   return this.request({method: 'POST', url: `/${this.getCurrentUser()._id}/matches`, data: businessData})
+     .then((response) => response.data)
+ }
 
-  addBusinessList(businessData) {
-    return this.request({method: 'POST', url: `/${this.getCurrentUser()._id}/matches`, data: businessData})
-      .then((response) => response.data)
-  }
-
-  getBusinessList() {
-    return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
-      .then((response) => response.data)
-  }
-
+ getBusinessList() {
+   return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
+     .then((response) => response.data)
+ }
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/users', data: userInfo})
       .then((response) => response.data.success)

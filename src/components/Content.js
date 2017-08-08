@@ -1,5 +1,6 @@
-import React from 'react'
-import auth from '../auth'
+import React from 'react';
+import auth from '../auth';
+import {NavLink} from 'react-router-dom';
 
 class Content extends React.Component{
   state = {
@@ -10,7 +11,7 @@ class Content extends React.Component{
   componentDidMount(){
     auth.getYelpInfo().then(data => {
       this.setState({businessData: data, images: data.photos})
-      console.log(this.state.businessData);
+      console.log(this.state.images);
     })
   }
 
@@ -50,6 +51,7 @@ class Content extends React.Component{
   render(){
     return (
       <div>
+            <NavLink to="/matches">See your Matches</NavLink>
         <div className="image">
           <img className="food-pic" src={this.state.images[0]}/>
         </div>
