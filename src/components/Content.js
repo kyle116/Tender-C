@@ -18,8 +18,9 @@ componentDidMount(){
   render(){
   return (
     <div>
-
-    <img src={this.state.images[0]}/>
+      <div className="image">
+        <img className="food-pic" src={this.state.images[0]}/>
+      </div>
     </div>
   )
   }

@@ -7,6 +7,7 @@ import axios from 'axios';
 import auth from './auth';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
+import carouselInstance from './components/Carousel';
 
 import Home from './components/Home'
 
@@ -37,9 +38,11 @@ class App extends Component {
       <div className="App">
         {currentUser ?
           <p>current user: {currentUser.name}</p> : null}
-        <div className="App-header">
+
           <NavBar currentUser={this.state.currentUser}/>
-        </div>
+          < carouselInstance />
+
+
         <Route exact path='/' component={Home} />
         <Route path="/signup" render={() => (
           <SignUp onSignUp={this.setCurrentUser.bind(this)} />
