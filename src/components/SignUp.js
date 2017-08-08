@@ -19,8 +19,12 @@ class SignUp extends Component {
         }
         console.log('Kyle and Brad are making your account right now.')
         console.log(formData)
-        auth.signUp(formData).then(success => {
-          if(success) this.setState({shouldRedirect: true})
+        auth.signUp(formData)
+        auth.signIn(formData).then(user => {
+          if(user) {
+            this.props.onSignUp()
+            this.setState({shouldRedirect: true})
+          }
         })
       } else {
         console.log('your mom.')
@@ -38,7 +42,7 @@ class SignUp extends Component {
             <input ref="email" type="text" placeholder="Email" />
             <input ref="password" type="password" placeholder="Password" />
             <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
-            <button>Sign Up!</button>
+            <button className="btn btn-primary">Sign Up!</button>
           </form>
         </div>
       )

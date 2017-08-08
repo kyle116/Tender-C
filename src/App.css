@@ -22,3 +22,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.NavBar {
+  padding: 0px;
+}
+.nav-links {
+  list-style-type: none;
+  display: inline;
+  margin: 10px;
+}
+
+.sign-in-up {
+  display: inline-block;
+}

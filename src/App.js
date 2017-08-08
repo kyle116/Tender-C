@@ -32,9 +32,11 @@ class App extends Component {
         {currentUser ?
           <p>current user: {currentUser.name}</p> : null}
         <div className="App-header">
-          <NavBar />
+          <NavBar currentUser={this.state.currentUser}/>
         </div>
-        <Route path="/signup" component={SignUp} />
+        <Route path="/signup" render={() => (
+          <SignUp onSignUp={this.setCurrentUser.bind(this)} />
+        )} />
         <Route path="/signin" render={() => (
           <SignIn onSignIn={this.setCurrentUser.bind(this)} />
         )} />
