@@ -32,7 +32,7 @@ class SignIn extends Component {
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input ref="email" type="text" placeholder="Email" />
             <input ref="password" type="password" placeholder="Password" />
-            <button>Sign In</button>
+            <button className="btn btn-primary">Sign In</button>
           </form>
         </div>
       )

@@ -7,7 +7,12 @@ import axios from 'axios';
 import auth from './auth';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
+
 import Home from './components/Home'
+
+import Content from './components/Content';
+
+
 
 class App extends Component {
   state = {
@@ -45,6 +50,7 @@ class App extends Component {
         <Route path="/signout" render={() => (
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
+        <Content />
       </div>
       </Router>
     );
