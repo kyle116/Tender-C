@@ -7,7 +7,6 @@ import axios from 'axios';
 import auth from './auth';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
-import carouselInstance from './components/Carousel';
 
 import Home from './components/Home'
 

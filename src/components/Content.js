@@ -11,8 +11,6 @@ componentDidMount(){
   auth.getYelpInfo().then(images => {
     this.setState({images})
   })
-
-
 }
 
   render(){
