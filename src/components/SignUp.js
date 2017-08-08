@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 
 
 
+
 class SignUp extends Component {
   state = {
     shouldRedirect: false
@@ -37,7 +38,7 @@ class SignUp extends Component {
       this.state.shouldRedirect ? <Redirect to="/content" /> :
         (<div>
           <h1>Sign Up</h1>
-          <form onSubmit={this.handleFormSubmit.bind(this)}>
+          <form  onSubmit={this.handleFormSubmit.bind(this)}>
             <input ref="name" type="text" placeholder="Name" />
             <input ref="email" type="text" placeholder="Email" />
             <input ref="password" type="password" placeholder="Password" />
