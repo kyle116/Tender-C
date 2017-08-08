@@ -50,7 +50,7 @@ class Content extends React.Component{
       this.setState({businessData: data, images: data.photos})
     })
   }
->>>>>>> f21132b45063f262ffc2b5c19d4af8799386907b
+
 
   render(){
     return (
