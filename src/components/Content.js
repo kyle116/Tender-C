@@ -15,11 +15,6 @@ class Content extends React.Component{
   }
 
 
-  auth.getYelpInfo().then(images => {
-    this.setState({images})
-  })
-}
-
   unmatchButton() {
     console.log('unmatchedd');
     auth.getYelpInfo().then(data => {
