@@ -1,5 +1,6 @@
 import React from 'react'
 import auth from '../auth'
+import {NavLink} from 'react-router-dom'
 
 class Content extends React.Component{
   state = {
@@ -50,8 +51,9 @@ class Content extends React.Component{
   render(){
     return (
       <div>
+        <NavLink to="/matches">See your Matches</NavLink>
         <div className="image">
-          <img className="food-pic" src={this.state.images[0]}/>
+          <img className="food-pic" src={this.state.images[0]} alt={this.state.businessData.name}/>
         </div>
         <button onClick={this.unmatchButton.bind(this)}>No</button>
         <button onClick={this.matchButton.bind(this)}>Match</button>

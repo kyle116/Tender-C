@@ -9,7 +9,7 @@ class List extends React.Component{
 
   componentDidMount() {
     auth.getBusinessList().then(user => {
-      console.log(user.businesses);
+      console.log(user);
       this.setState({matches: user.businesses})
     })
   }
@@ -18,9 +18,8 @@ class List extends React.Component{
     return (
       <div>
         <ul>
-          <li>MOKD</li>
-          {this.state.matches.map(business => (
-            <li>{business.name}</li>
+          {this.state.matches.map((business, i) => (
+            <li key={i}>{business.name}</li>
           ))}
         </ul>
       </div>

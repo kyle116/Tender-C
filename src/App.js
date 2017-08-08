@@ -41,8 +41,7 @@ class App extends Component {
           <p>current user: {currentUser.name}</p> : null}
 
           <NavBar currentUser={this.state.currentUser}/>
-          < carouselInstance />
-        <List />
+
 
         <Route exact path='/' component={Home} />
         <Route path="/signup" render={() => (
@@ -55,6 +54,7 @@ class App extends Component {
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
         <Route path="/content" component={Content} />
+        <Route path="/matches" component={List} />
 
       </div>
       </Router>
