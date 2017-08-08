@@ -14,12 +14,12 @@ class Content extends React.Component{
     })
   }
 
-<<<<<<< HEAD
+
   auth.getYelpInfo().then(images => {
     this.setState({images})
   })
 }
-=======
+
   unmatchButton() {
     console.log('unmatchedd');
     auth.getYelpInfo().then(data => {
