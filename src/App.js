@@ -11,7 +11,9 @@ import carouselInstance from './components/Carousel';
 
 import Home from './components/Home'
 
-import Content from './components/Content';
+import Content from './components/Content'
+
+import List from './components/List'
 
 
 
@@ -41,7 +43,7 @@ class App extends Component {
 
           <NavBar currentUser={this.state.currentUser}/>
           < carouselInstance />
-
+        <List />
 
         <Route exact path='/' component={Home} />
         <Route path="/signup" render={() => (
@@ -54,6 +56,7 @@ class App extends Component {
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
         <Route path="/content" component={Content} />
+
       </div>
       </Router>
     );
