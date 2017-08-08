@@ -7,6 +7,7 @@ import axios from 'axios';
 import auth from './auth';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
+import Home from './components/Home'
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
         <div className="App-header">
           <NavBar currentUser={this.state.currentUser}/>
         </div>
+        <Route exact path='/' component={Home} />
         <Route path="/signup" render={() => (
           <SignUp onSignUp={this.setCurrentUser.bind(this)} />
         )} />
