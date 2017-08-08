@@ -13,6 +13,10 @@ class AuthClient {
     })
   }
 
+getYelpInfo(){
+  return this.request({method: 'GET', url: '/yelp'})
+    .then((response) => response.data)
+}
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/users', data: userInfo})
       .then((response) => response.data.success)

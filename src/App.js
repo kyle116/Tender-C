@@ -50,7 +50,7 @@ class App extends Component {
         <Route path="/signout" render={() => (
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
-        <Content />
+        <Route path="/content" component={Content} />
       </div>
       </Router>
     );

@@ -1,10 +1,27 @@
 import React from 'react'
+import auth from '../auth'
 
-const Content = (props) =>{
+class Content extends React.Component{
+  state = {
+    images: []
+  }
+
+componentDidMount(){
+
+  auth.getYelpInfo().then(images => {
+    this.setState({images})
+  })
+
+
+}
+
+  render(){
   return (
     <div>
-    <p>hi</p>
+
+    <img src={this.state.images[0]}/>
     </div>
   )
+  }
 }
 export default Content
