@@ -16,6 +16,9 @@ class Content extends React.Component{
 
   unmatchButton() {
     console.log('unmatchedd');
+    auth.getYelpInfo().then(data => {
+      this.setState({businessData: data, images: data.photos})
+    })
   }
 
   matchButton() {
@@ -31,8 +34,15 @@ class Content extends React.Component{
       images: this.state.businessData.photos
     }
     auth.addBusinessList(businessData)
+    // .then(business => {
+    //   this.setState()
+    // })
     console.log('Matched!');
     console.log(businessData);
+
+    auth.getYelpInfo().then(data => {
+      this.setState({businessData: data, images: data.photos})
+    })
   }
 
   render(){
@@ -41,7 +51,7 @@ class Content extends React.Component{
         <div className="image">
           <img className="food-pic" src={this.state.images[0]}/>
         </div>
-        <button onClick={this.unmatchButton}>No</button>
+        <button onClick={this.unmatchButton.bind(this)}>No</button>
         <button onClick={this.matchButton.bind(this)}>Match</button>
       </div>
     )

@@ -19,7 +19,12 @@ class AuthClient {
   }
 
   addBusinessList(businessData) {
-    return this.request({method: 'POST', url: '/matches', data: businessData})
+    return this.request({method: 'POST', url: `/${this.getCurrentUser()._id}/matches`, data: businessData})
+      .then((response) => response.data)
+  }
+
+  getBusinessList() {
+    return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
       .then((response) => response.data)
   }
 
