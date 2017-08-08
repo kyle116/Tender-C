@@ -19,7 +19,7 @@ class List extends React.Component{
       <div>
         <ul>
           {this.state.matches.map((business, i) => (
-            <li key={i}>{business.name}</li>
+            <li className="listing" key={i}>{business.name} <button className=" btn-xs btn btn-danger">X</button></li>
           ))}
         </ul>
       </div>

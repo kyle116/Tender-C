@@ -51,8 +51,12 @@ class App extends Component {
         <Route path="/signout" render={() => (
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
-        <Route path="/content" component={Content} />
-        <Route path="/matches" component={List} />
+      
+        <Route path="/content" render={() => (
+          currentUser ? <Content /> : <Redirect to="/signin" />)} />
+
+        <Route path="/matches" component={() => (
+          currentUser ? <List /> : <Redirect to="/signin" /> )} />
 
       </div>
       </Router>
