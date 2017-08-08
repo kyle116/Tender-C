@@ -6,23 +6,30 @@ class Content extends React.Component{
     images: []
   }
 
-componentDidMount(){
+  componentDidMount(){
+    auth.getYelpInfo().then(images => {
+      this.setState({images})
+    })
+  }
 
-  auth.getYelpInfo().then(images => {
-    this.setState({images})
-  })
+  unmatchButton() {
+    console.log('unmatchedd');
+  }
 
-
-}
+  matchButton() {
+    console.log('MATCHED');
+  }
 
   render(){
-  return (
-    <div>
-      <div className="image">
-        <img className="food-pic" src={this.state.images[0]}/>
+    return (
+      <div>
+        <div className="image">
+          <img className="food-pic" src={this.state.images[0]}/>
+        </div>
+        <button onClick={this.unmatchButton}>No</button>
+        <button onClick={this.matchButton}>Match</button>
       </div>
-    </div>
-  )
+    )
   }
 }
 export default Content
