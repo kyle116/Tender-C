@@ -28,7 +28,7 @@ class List extends React.Component{
   render() {
     return (
       <div>
-        <ul>
+        <ul className="list">
           {this.state.matches.map((business, i) => (
             <li className="listing" key={i}>{business.name} <button className=" btn-xs btn btn-danger" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button></li>
           ))}
