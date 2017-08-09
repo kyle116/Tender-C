@@ -53,7 +53,7 @@ class Content extends React.Component{
       <div>
         <NavLink to="/matches">See your Matches</NavLink>
         <div className="image">
-          <img className="food-pic" src={this.state.images[0]} alt={this.state.businessData.name}/>
+          <img className="food-pic" src={this.state.images[0]}/>
         </div>
         <button onClick={this.unmatchButton.bind(this)}>No</button>
         <button onClick={this.matchButton.bind(this)}>Match</button>
