@@ -13,7 +13,6 @@ class List extends React.Component{
     auth.getBusinessList().then(user => {
       console.log(user);
       this.setState({currentUser:user, matches: user.businesses})
-      console.log(user.businesses);
     })
   }
 

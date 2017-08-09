@@ -37,14 +37,15 @@ class Content extends React.Component{
     }
     auth.addBusinessList(businessData)
     // .then(business => {
-    //   this.setState()
+    //
     // })
     console.log('Matched!');
     console.log(businessData);
-
     auth.getYelpInfo().then(data => {
+      console.log('within');
       this.setState({businessData: data, images: data.photos})
     })
+
   }
 
 
