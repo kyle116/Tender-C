@@ -26,6 +26,12 @@ addBusinessList(businessData) {
    return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
      .then((response) => response.data)
  }
+
+ deleteBus(obj) {
+   return this.request({method: 'DELETE', url: `/${obj.userId}/${obj.id}/delete`})
+    .then(response => response.data)
+ }
+
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/users', data: userInfo})
       .then((response) => response.data.success)
