@@ -41,11 +41,9 @@ class App extends Component {
           <p>current user: {currentUser.name}</p> : null}
 
           <NavBar currentUser={this.state.currentUser}/>
-
-
-        <Route exact path='/' component={Home} />
-        <Route path="/signup" render={() => (
-          <SignUp onSignUp={this.setCurrentUser.bind(this)} />
+            <Route exact path='/' component={Home} />
+            <Route path="/signup" render={() => (
+            <SignUp onSignUp={this.setCurrentUser.bind(this)} />
         )} />
         <Route path="/signin" render={() => (
           <SignIn onSignIn={this.setCurrentUser.bind(this)} />
@@ -53,8 +51,12 @@ class App extends Component {
         <Route path="/signout" render={() => (
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
-        <Route path="/content" component={Content} />
-        <Route path="/matches" component={List} />
+      
+        <Route path="/content" render={() => (
+          currentUser ? <Content /> : <Redirect to="/signin" />)} />
+
+        <Route path="/matches" component={() => (
+          currentUser ? <List /> : <Redirect to="/signin" /> )} />
 
       </div>
       </Router>
