@@ -13,6 +13,7 @@ import Home from './components/Home'
 import Content from './components/Content'
 
 import List from './components/List'
+import EditUser from './components/EditUser'
 
 
 
@@ -51,13 +52,14 @@ class App extends Component {
         <Route path="/signout" render={() => (
           <SignOut onSignOut={this.signOut.bind(this)} />
         )} />
-      
+
         <Route path="/content" render={() => (
           currentUser ? <Content /> : <Redirect to="/signin" />)} />
 
         <Route path="/matches" component={() => (
           currentUser ? <List /> : <Redirect to="/signin" /> )} />
 
+            <Route path="/edituser" component={EditUser} />
       </div>
       </Router>
     );

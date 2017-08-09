@@ -1,5 +1,6 @@
-import React from 'react'
-import auth from '../auth'
+import React from 'react';
+import auth from '../auth';
+import {NavLink} from 'react-router-dom';
 
 class List extends React.Component{
 
@@ -28,6 +29,7 @@ class List extends React.Component{
   render() {
     return (
       <div>
+      <NavLink to="/edituser">edit your profile</NavLink>
         <ul className="list">
           {this.state.matches.map((business, i) => (
             <li className="listing" key={i}>{business.name} <button className=" btn-xs btn btn-danger" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button></li>

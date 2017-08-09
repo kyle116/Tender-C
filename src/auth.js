@@ -50,6 +50,11 @@ addBusinessList(businessData) {
       })
   }
 
+  editProfile(userInfo){
+    return this.request({method: "PATCH", url: `/users/${this.getCurrentUser()._id}`, data: userInfo})
+        .then(response => {response.data.success})
+  }
+
   getCurrentUser() {
     const token = this.getToken()
     return token ? jwtDecode(token) : null
