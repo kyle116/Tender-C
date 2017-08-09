@@ -7,6 +7,7 @@ const NavBar = (props) => {
       <li className="nav-links"><NavLink exact to='/'>Home</NavLink></li>
       {props.currentUser ?
       <li className="nav-links"><NavLink to='/signout'>Sign Out</NavLink></li>
+      <li className="nav-links"><NavLink to="/content">Hook Up</NavLink></li>
       :
       (
       <div className="sign-in-up">
