@@ -1,120 +1,120 @@
 h1 {
-  font-family: 'Varela Round', sans-serif;
-  line-height: 1.5;
-  color: #DB4C2C;
+ font-family: 'Varela Round', sans-serif;
+ line-height: 1.5;
+ color: #DB4C2C ;
 
 }
 .legit-logo {
-  width: 40px;
-  height: 45px;
+ width: 40px;
+ height: 45px;
 }
 
 #root, .container {
-  max-width: 800px;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
+ max-width: 800px;
+ height: 100vh;
+ text-align: center;
+ margin: 0 auto;
 
 
 }
 .App {
-  text-align: center;
+ text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+ animation: App-logo-spin infinite 20s linear;
+ height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+ background-color: #222;
+ height: 150px;
+ padding: 20px;
+ color: white;
 }
 
 .App-intro {
-  font-size: large;
+ font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ from { transform: rotate(0deg); }
+ to { transform: rotate(360deg); }
 }
 
 .NavBar {
-  padding: 0px;
-  background-color: #eaebec;
-  height: 50px;
+ padding: 0px;
+ background-color: #eaebec ;
+ height: 50px;
 }
 .nav-links {
-  list-style-type: none;
-  display: inline;
-  margin: 10px;
-  line-height: 20px;
-  color: black;
+ list-style-type: none;
+ display: inline;
+ margin: 10px;
+ line-height: 20px;
+ color: black;
 }
 
 .sign-in-up {
-  display: inline-block;
+ display: inline-block;
 }
 
 .image {
-  background: #343434;
+ background: #343434 ;
 
 }
 .food-pic {
-  max-width: 600px;
-  max-height: 600px;
-  margin: 80px;
-  border-radius: 2%;
+ max-width: 600px;
+ max-height: 600px;
+ margin: 80px;
+ border-radius: 2%;
 }
 
 .listing {
-  border: 3px solid black;
-  margin: 5px;
-  padding: 5px;
-  width: 345px;
-  text-align: center;
-  list-style: none;
+ border: 3px solid black;
+ margin: 5px;
+ padding: 5px;
+ width: 345px;
+ text-align: center;
+ list-style: none;
 }
 
 .choices {
-  margin: 0 100px;
-  border-radius: 50%;
+ margin: 0 100px;
+ border-radius: 50%;
 }
 
 .list {
-  padding: 0;
-  margin: 0 auto;
-  display: inline-block;
+ padding: 0;
+ margin: 0 auto;
+ display: inline-block;
 }
 
 .welcome-text {
-  opacity: 50%
+ opacity: 50%
 }
 
- .username {
+.username {
 display: inline;
 }
 
 .buttons-container {
-  margin: 5px;
+ margin: 5px;
 }
 
 .returned-images {
-  height: 50px;
-  width: 50px
+ height: 50px;
+ width: 50px
 }
 
 .delete-listing {
-  margin: 5px;
+ margin: 5px;
 }
 
 .addresses {
-  display: inline-block;
-  margin: 0 10%;
+ display: inline-block;
+ margin: 0 10%;
 }
 .container {
-  margin: 0 auto;
+ margin: 0 auto;
 }
