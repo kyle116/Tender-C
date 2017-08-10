@@ -9,7 +9,7 @@ h1 {
   height: 45px;
 }
 
-#root {
+#root, .container {
   max-width: 800px;
   height: 100vh;
   text-align: center;
