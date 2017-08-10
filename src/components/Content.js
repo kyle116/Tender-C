@@ -6,11 +6,14 @@ class Content extends React.Component{
   state = {
     businessData: null,
     images: [],
-    location: null
+    location: localStorage.getItem('location')
   }
 
   componentDidMount(){
-    this.setState({location: null})
+    // this.setState({location: null})
+    auth.getYelpInfo(this.state.location).then(data => {
+      this.setState({businessData: data, images: data.photos})
+    })
   }
 
 
@@ -48,15 +51,23 @@ class Content extends React.Component{
 
   setLocation(e){
     const locationData = this.refs.location.value
+    localStorage.setItem('location', locationData)
     auth.setLocationYelp(locationData).then(data => {
       this.setState({businessData: data, images: data.photos, location: locationData})
     })
   }
 
 
+  clearLocation(){
+    localStorage.removeItem('location')
+    this.setState({location:null})
+  }
+
+
   render(){
     return (
       <div>
+      <button onClick={this.clearLocation.bind(this)}>Change</button>
       {this.state.location
          ? (
            <div>
