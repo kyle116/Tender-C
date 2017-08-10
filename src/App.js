@@ -28,6 +28,13 @@ class App extends Component {
     })
   }
 
+  updateUser(updatedUser){
+    console.log(updatedUser);
+    this.setState({
+      currentUser: updatedUser
+    })
+  }
+
   signOut(){
     auth.clearToken()
     this.setState({currentUser: null})
@@ -38,8 +45,7 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        {currentUser ?
-          <p>current user: {currentUser.name}</p> : null}
+
 
           <NavBar currentUser={this.state.currentUser}/>
             <Route exact path='/' component={Home} />
@@ -59,7 +65,9 @@ class App extends Component {
         <Route path="/matches" component={() => (
           currentUser ? <List /> : <Redirect to="/signin" /> )} />
 
-            <Route path="/edituser" component={EditUser} />
+            <Route path="/edituser" render={() => (
+              <EditUser dad={this} />
+            )} />
       </div>
       </Router>
     );

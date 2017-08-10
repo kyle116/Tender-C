@@ -3,9 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 const Home = (props) => {
   return (
-    <div>
-      <h1>Welcome, to Tender where you get hooked up with great food! Sign up to get started</h1>
-      <li className="nav-links"><NavLink to='/signup'>Sign Up</NavLink></li>
+    <div className="welcome-text">
+      <h1>Welcome to Tender <br />  Get hooked up with great food! <br />Sign up to get started</h1>
     </div>
   )
 }

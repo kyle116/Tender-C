@@ -39,10 +39,10 @@ class SignUp extends Component {
         (<div>
           <h1>Sign Up</h1>
           <form  onSubmit={this.handleFormSubmit.bind(this)}>
-            <input ref="name" type="text" placeholder="Name" />
-            <input ref="email" type="text" placeholder="Email" />
-            <input ref="password" type="password" placeholder="Password" />
-            <input ref="confirmPassword" type="password" placeholder="Confirm Password" />
+            <input className="form-control" ref="name" type="text" placeholder="Name" />
+            <input className="form-control" ref="email" type="text" placeholder="Email" />
+            <input className="form-control" ref="password" type="password" placeholder="Password" />
+            <input className="form-control" ref="confirmPassword" type="password" placeholder="Confirm Password" />
             <button className="btn btn-primary">Sign Up!</button>
           </form>
         </div>

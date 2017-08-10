@@ -31,7 +31,15 @@ class List extends React.Component{
       <NavLink to="/edituser">edit your profile</NavLink>
         <ul className="list">
           {this.state.matches.map((business, i) => (
-            <li className="listing" key={i}>{business.name} <button className=" btn-xs btn btn-danger" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button></li>
+            <div className="listing">
+            <img className="returned-images"src={business.images[0]} />
+            <li className="addresses" key={i}>
+              {business.name}<br />
+              {business.address}<br />
+              {business.city}, {business.state} {business.zip_code}
+            </li>
+             <button className=" btn-xs btn btn-danger delete-listing" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button>
+             </div>
           ))}
         </ul>
       </div>

@@ -52,7 +52,16 @@ addBusinessList(businessData) {
 
   editProfile(userInfo){
     return this.request({method: "PATCH", url: `/users/${this.getCurrentUser()._id}`, data: userInfo})
-        .then(response => {response.data.success})
+      .then(response => {
+        if(response.data.success) {
+          console.log('Auth is working');
+          const token = response.data.token
+          this.setToken(token)
+          return jwtDecode(token)
+        } else {
+          return false
+        }
+      })
   }
 
   getCurrentUser() {

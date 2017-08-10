@@ -1,3 +1,22 @@
+h1 {
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.5;
+  color: #DB4C2C;
+
+}
+.legit-logo {
+  width: 40px;
+  height: 45px;
+}
+
+#root {
+  max-width: 800px;
+  height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+
+
+}
 .App {
   text-align: center;
 }
@@ -25,11 +44,15 @@
 
 .NavBar {
   padding: 0px;
+  background-color: #eaebec;
+  height: 50px;
 }
 .nav-links {
   list-style-type: none;
   display: inline;
   margin: 10px;
+  line-height: 20px;
+  color: black;
 }
 
 .sign-in-up {
@@ -37,19 +60,21 @@
 }
 
 .image {
-  border: 1px solid black;
+  background: #343434;
+
 }
 .food-pic {
   max-width: 600px;
   max-height: 600px;
-  margin-top: 80px;
+  margin: 80px;
+  border-radius: 2%;
 }
 
 .listing {
   border: 3px solid black;
   margin: 5px;
   padding: 5px;
-  width: 300px;
+  width: 345px;
   text-align: center;
   list-style: none;
 }
@@ -63,4 +88,30 @@
   padding: 0;
   margin: 0 auto;
   display: inline-block;
+}
+
+.welcome-text {
+  opacity: 50%
+}
+
+ .username {
+display: inline;
+}
+
+.buttons-container {
+  margin: 5px;
+}
+
+.returned-images {
+  height: 50px;
+  width: 50px
+}
+
+.delete-listing {
+  margin: 5px;
+}
+
+.addresses {
+  display: inline-block;
+  margin: 0 10%;
 }
