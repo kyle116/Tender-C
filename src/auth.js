@@ -24,7 +24,9 @@ addBusinessList(businessData) {
 
  getBusinessList() {
    return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
-     .then((response) => response.data)
+     .then((response) => {
+       return response.data
+     })
  }
 
  deleteBus(obj) {
@@ -54,9 +56,9 @@ addBusinessList(businessData) {
     return this.request({method: "PATCH", url: `/users/${this.getCurrentUser()._id}`, data: userInfo})
       .then(response => {
         if(response.data.success) {
-          console.log('Auth is working');
           const token = response.data.token
-          this.setToken(token)
+          localStorage.setItem('token', token)
+          this.request.defaults.headers.common.token = token
           return jwtDecode(token)
         } else {
           return false
