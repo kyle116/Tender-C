@@ -10,7 +10,6 @@ class Content extends React.Component{
   }
 
   componentDidMount(){
-    // this.setState({location: null})
     auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
     })
@@ -20,8 +19,10 @@ class Content extends React.Component{
 
   unmatchButton() {
     console.log('unmatchedd');
+    this.props.dad.setLoading()
     auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
+      this.props.dad.setLoading()
     })
   }
 
@@ -43,8 +44,12 @@ class Content extends React.Component{
     // })
     console.log('Matched!');
     console.log(businessData);
+    // set loading to true here
+    this.props.dad.setLoading()
     auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
+      // set loading to false here
+      this.props.dad.setLoading()
     })
 
   }
@@ -62,20 +67,16 @@ class Content extends React.Component{
     this.setState({location: null})
   }
 
-  clearLocation(){
-    localStorage.removeItem('location')
-    this.setState({location:null})
-  }
+
 
 
   render(){
     return (
       <div>
-      <button onClick={this.clearLocation.bind(this)}>Change</button>
       {this.state.location
          ? (
           <div>
-            <button onClick={this.clearLocation.bind(this)}>Change Location</button>
+            <button className="btn btn-success" onClick={this.clearLocation.bind(this)}>Change Location</button>
             <br />
             <NavLink to="/matches">See your Matches</NavLink>
             <div className="image">
@@ -88,8 +89,9 @@ class Content extends React.Component{
           </div>
          ) :
          <div>
-           <input ref="location" type="text" placeholder="city" />
-           <button onClick={this.setLocation.bind(this)}>Submit</button>
+           <input id="city-search" className="form-control" ref="location" type="text" placeholder="city" />
+           <br />
+           <button id="city-btn" className="btn btn-success" onClick={this.setLocation.bind(this)}>Submit</button>
          </div>}
       </div>
     )

@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 class AuthClient {
   constructor(){
     this.request = axios.create({
-      baseURL: 'https://polar-inlet-28677.herokuapp.com/',
+      baseURL: 'http://localhost:3001',
       headers: {
         common: {
           token: this.getToken()
