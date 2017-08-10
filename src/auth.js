@@ -13,8 +13,8 @@ class AuthClient {
     })
   }
 
-getYelpInfo(){
-  return this.request({method: 'GET', url: '/yelp'})
+getYelpInfo(locationData){
+  return this.request({method: 'GET', url: `/yelp/${locationData}`})
     .then((response) => response.data)
 }
 addBusinessList(businessData) {
@@ -27,6 +27,11 @@ addBusinessList(businessData) {
      .then((response) => {
        return response.data
      })
+ }
+ setLocationYelp(locationData){
+   console.log('locDAta ',locationData)
+   return this.request({method: "GET", url: `/yelp/${locationData}`})
+    .then((response) => response.data)
  }
 
  deleteBus(obj) {

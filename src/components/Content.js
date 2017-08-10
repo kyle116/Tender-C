@@ -5,20 +5,18 @@ import {NavLink} from 'react-router-dom';
 class Content extends React.Component{
   state = {
     businessData: null,
-    images: []
+    images: [],
+    location: null
   }
 
   componentDidMount(){
-    auth.getYelpInfo().then(data => {
-      this.setState({businessData: data, images: data.photos})
-      console.log(this.state.images);
-    })
+    this.setState({location: null})
   }
 
 
   unmatchButton() {
     console.log('unmatchedd');
-    auth.getYelpInfo().then(data => {
+    auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
     })
   }
@@ -41,25 +39,41 @@ class Content extends React.Component{
     // })
     console.log('Matched!');
     console.log(businessData);
-    auth.getYelpInfo().then(data => {
+    auth.getYelpInfo(this.state.location).then(data => {
       console.log('within');
       this.setState({businessData: data, images: data.photos})
     })
 
   }
 
+  setLocation(e){
+    const locationData = this.refs.location.value
+    auth.setLocationYelp(locationData).then(data => {
+      this.setState({businessData: data, images: data.photos, location: locationData})
+    })
+  }
+
 
   render(){
     return (
       <div>
-        <NavLink to="/matches">See your Matches</NavLink>
-        <div className="image">
-          <img className="food-pic" src={this.state.images[0]} />
-        </div>
-        <div className="buttons-container">
-          <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times-circle fa-5x" aria-hidden="true"></i></button>
-          <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check-circle fa-5x" aria-hidden="true"></i></button>
-        </div>
+      {this.state.location
+         ? (
+           <div>
+           <NavLink to="/matches">See your Matches</NavLink>
+           <div className="image">
+             <img className="food-pic" src={this.state.images[0]} />
+           </div>
+           <div className="buttons-container">
+             <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times-circle fa-5x" aria-hidden="true"></i></button>
+             <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check-circle fa-5x" aria-hidden="true"></i></button>
+           </div>
+           </div>
+         ) :
+         <div>
+           <input ref="location" type="text" placeholder="city" />
+           <button onClick={this.setLocation.bind(this)}>Submit</button>
+         </div>}
       </div>
     )
   }

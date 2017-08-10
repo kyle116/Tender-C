@@ -28,22 +28,24 @@ class List extends React.Component{
 
   render() {
     return (
-      <div>
+      <div className="container">
       <NavLink to="/edituser">edit your profile</NavLink>
-        <ul className="list">
-          {this.state.matches.map((business, i) => (
-            <div className="listing" key={i}>
-            <img className="returned-images" src={business.images[0]} />
-            <li className="addresses" key={i}>
-              {business.name}<br />
-              {business.address}<br />
-              {business.city}, {business.state} {business.zip_code}
-            </li>
-             <button className=" btn-xs btn btn-danger delete-listing" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button>
-             </div>
-          ))}
-        </ul>
+        <div className="matches-list">
+          <ul className="list">
+            {this.state.matches.map((business, i) => (
+              <div className="listing" key={i}>
+                <img className="returned-images" src={business.images[0]} />
+                <li className="addresses" key={i}>
+                  {business.name}<br />
+                  {business.address}<br />
+                  {business.city}, {business.state} {business.zip_code}
+                </li>
+                <button className=" btn-xs btn btn-danger delete-listing" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button>
+               </div>
+            ))}
+          </ul>
       </div>
+    </div>
     )
   }
 
