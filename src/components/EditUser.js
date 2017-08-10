@@ -18,12 +18,13 @@ class EditUser extends Component {
           email: this.refs.email.value,
           password: this.refs.password.value
         }
-        if(formData.password.length === 0) delete formData.password
+        for(var x in formData) {
+          if(formData[x].length === 0) delete formData[x]
+        }
         console.log('Kyle and Brad are updating your account right now.')
-        console.log(formData)
+
         auth.editProfile(formData).then(user => {
-          console.log(user._doc)
-          this.props.dad.updateUser(user._doc)
+          this.props.dad.updateUser(user)
           if(user) this.setState({shouldRedirect: true})
         })
       }

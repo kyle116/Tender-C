@@ -11,6 +11,7 @@ class List extends React.Component{
 
   componentDidMount() {
     auth.getBusinessList().then(user => {
+      console.log('====Component did mount====');
       console.log(user);
       this.setState({currentUser:user, matches: user.businesses})
     })
@@ -31,8 +32,8 @@ class List extends React.Component{
       <NavLink to="/edituser">edit your profile</NavLink>
         <ul className="list">
           {this.state.matches.map((business, i) => (
-            <div className="listing">
-            <img className="returned-images"src={business.images[0]} />
+            <div className="listing" key={i}>
+            <img className="returned-images" src={business.images[0]} />
             <li className="addresses" key={i}>
               {business.name}<br />
               {business.address}<br />
