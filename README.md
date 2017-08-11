@@ -30,12 +30,12 @@ Run nodemon on the server folder
 
 ###Website screenshot
 
-![screenshot](/tender-client/public/Screenshot.png)
+![screenshot](https://github.com/bkmorgan3/Tender-Client/blob/master/public/Screenshot.png)
 
 
 
 ###Wireframe screenshot
 
-![screenshot](/tender-client/public/Wireframes_1.png)
+![screenshot](https://github.com/bkmorgan3/Tender-Client/blob/master/public/Wireframes_1.png)
 
-![screenshot](/tender-client/public/Wireframes_2.png)
+![screenshot](https://github.com/bkmorgan3/Tender-Client/blob/master/public/Wireframes_2.png)
