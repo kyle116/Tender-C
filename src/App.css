@@ -47,6 +47,7 @@ h1 {
  padding: 0px;
  background-color: #eaebec ;
  height: 50px;
+ margin-bottom: 0;
 }
 .nav-links {
  list-style-type: none;
@@ -126,11 +127,11 @@ display: inline;
 }
 
 .loading {
-  position: relative;
+  position: absolute;
   z-index: 1000;
-  width: 100%;
+  width: 800px;
   height: 100%;
-  background: rgba(0,0,0,.5)
+  background: rgba(255,255,255,1)
 }
 
 .content {
