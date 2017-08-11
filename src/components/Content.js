@@ -10,8 +10,10 @@ class Content extends React.Component{
   }
 
   componentDidMount(){
+    this.props.dad.setLoading()
     auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
+      this.props.dad.setLoading()
     })
     console.log(this.state.location);
   }

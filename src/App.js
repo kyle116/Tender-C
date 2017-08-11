@@ -52,17 +52,18 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-      {this.state.loading
-        ? (
-          <div className="loading">
-            <img src={loading} />
-          </div>
-        )
-        : null
-      }
-
         <div className='content'>
-        <NavBar currentUser={this.state.currentUser}/>
+          <NavBar currentUser={this.state.currentUser}/>
+          {this.state.loading
+            ? (
+              <div className="loading">
+                <h1>Loading....</h1>
+              </div>
+            )
+            : null
+          }
+
+
           <Route exact path='/' component={Home} />
           <Route path="/signup" render={() => (
           <SignUp onSignUp={this.setCurrentUser.bind(this)} />
