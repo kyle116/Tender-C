@@ -14,7 +14,6 @@ import Content from './components/Content'
 
 import List from './components/List'
 import EditUser from './components/EditUser'
-import loading from './loading.gif'
 
 
 
