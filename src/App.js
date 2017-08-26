@@ -34,11 +34,9 @@ class App extends Component {
   }
 
   updateUser(updatedUser){
-    console.log('=======App=======');
     this.setState({
       currentUser: updatedUser
     })
-    console.log(this.state.currentUser);
   }
 
   signOut(){

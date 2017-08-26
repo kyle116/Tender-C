@@ -29,7 +29,6 @@ addBusinessList(businessData) {
      })
  }
  setLocationYelp(locationData){
-   console.log('locDAta ',locationData)
    return this.request({method: "GET", url: `/yelp/${locationData}`})
     .then((response) => response.data)
  }

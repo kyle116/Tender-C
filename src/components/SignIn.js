@@ -13,7 +13,6 @@ class SignIn extends Component {
       email: this.refs.email.value,
       password: this.refs.password.value
     }
-    console.log("We are logging you in");
     auth.signIn(formData).then(user => {
       if(user) {
         this.props.onSignIn()

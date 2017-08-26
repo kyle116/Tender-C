@@ -18,8 +18,6 @@ class SignUp extends Component {
           email: this.refs.email.value,
           password: this.refs.password.value
         }
-        console.log('Kyle and Brad are making your account right now.')
-        console.log(formData)
         auth.signUp(formData)
         auth.signIn(formData).then(user => {
           if(user) {
@@ -27,8 +25,6 @@ class SignUp extends Component {
             this.setState({shouldRedirect: true})
           }
         })
-      } else {
-        console.log('your mom.')
       }
   }
 

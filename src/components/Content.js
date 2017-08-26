@@ -15,12 +15,10 @@ class Content extends React.Component{
       this.setState({businessData: data, images: data.photos})
       this.props.dad.setLoading()
     })
-    console.log(this.state.location);
   }
 
 
   unmatchButton() {
-    console.log('unmatchedd');
     this.props.dad.setLoading()
     auth.getYelpInfo(this.state.location).then(data => {
       this.setState({businessData: data, images: data.photos})
@@ -41,11 +39,6 @@ class Content extends React.Component{
       images: this.state.businessData.photos
     }
     auth.addBusinessList(businessData)
-    // .then(business => {
-    //
-    // })
-    console.log('Matched!');
-    console.log(businessData);
     // set loading to true here
     this.props.dad.setLoading()
     auth.getYelpInfo(this.state.location).then(data => {

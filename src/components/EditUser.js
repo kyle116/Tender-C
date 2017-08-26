@@ -21,7 +21,6 @@ class EditUser extends Component {
         for(var x in formData) {
           if(formData[x].length === 0) delete formData[x]
         }
-        console.log('Kyle and Brad are updating your account right now.')
 
         auth.editProfile(formData).then(user => {
           this.props.dad.updateUser(user)

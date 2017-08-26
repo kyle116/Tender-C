@@ -11,17 +11,12 @@ class List extends React.Component{
 
   componentDidMount() {
     auth.getBusinessList().then(user => {
-      console.log('====Component did mount====');
-      console.log(user);
       this.setState({currentUser:user, matches: user.businesses})
     })
   }
 
   deleteBusiness(obj) {
-    console.log('hit');
-    console.log(obj);
     auth.deleteBus(obj).then(user => {
-      console.log(user);
       this.setState({currentUser: user, matches: user.businesses})
     })
   }
