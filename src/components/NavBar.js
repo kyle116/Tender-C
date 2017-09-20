@@ -3,13 +3,13 @@ import {NavLink} from 'react-router-dom';
 
 const NavBar = (props) => {
   return (
-    <ul className="NavBar">
-    <img className="legit-logo" src="tinder-icon.svg" />
-      <li className="nav-links"><NavLink exact to='/'>Home</NavLink></li>
+    <ul className="NavBar navbar navbar-default">
+
+      <li className="nav-links"><NavLink exact to='/'><img className="legit-logo" src="favicon.png" />Home</NavLink></li>
       {props.currentUser ?
         <span className="display-choice">
         {props.currentUser ?
-          <p className="username">current user: {props.currentUser.name}</p> : null}
+          <p className="username nav-links">Current User: {props.currentUser.name}</p> : null}
       <li className="nav-links"><NavLink to='/signout'>Sign Out</NavLink></li>
       <li className="nav-links"><NavLink to='/content'>Hook Up</NavLink></li>
       </span>

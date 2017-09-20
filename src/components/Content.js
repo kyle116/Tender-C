@@ -70,18 +70,24 @@ class Content extends React.Component{
       <div>
       {this.state.location
          ? (
-          <div>
-            <button className="btn btn-success" onClick={this.clearLocation.bind(this)}>Change Location</button>
-            <br />
-            <NavLink to="/matches">See your Matches</NavLink>
-            <div className="image">
-              <img className="food-pic" src={this.state.images[0]} />
-            </div>
-            <div className="buttons-container">
-              <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times-circle fa-5x" aria-hidden="true"></i></button>
-              <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check-circle fa-5x" aria-hidden="true"></i></button>
+        <div>
+          <button className="btn btn-success" onClick={this.clearLocation.bind(this)}>Change Location</button>
+          <br />
+          <NavLink to="/matches">See your Matches</NavLink>
+          <div className="card">
+
+
+            <img className="card-img-top food-pic" src={this.state.images[0]} />
+            <div className="card-block buttons-container">
+              <div className="button-yes">
+                <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times-circle fa-5x" aria-hidden="true"></i></button>
+              </div>
+              <div className="button-no">
+                <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check-circle fa-5x" aria-hidden="true"></i></button>
+              </div>
             </div>
           </div>
+        </div>
          ) :
          <div>
            <input id="city-search" className="form-control" ref="location" type="text" placeholder="city" />
