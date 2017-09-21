@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
+import './css/style.css';
+import './css/animations.css';
+import './css/nivo-lightbox.css';
+
 import NavBar from './components/NavBar'
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import SignUp from './components/SignUp';
@@ -48,9 +52,10 @@ class App extends Component {
     const currentUser = this.state.currentUser
     return (
       <Router>
+        <div>
+      <NavBar currentUser={this.state.currentUser}/>
       <div className="App">
-        <div className='content'>
-          <NavBar currentUser={this.state.currentUser}/>
+        <div className="content">
           {this.state.loading
             ? (
               <div className="loading">
@@ -61,10 +66,11 @@ class App extends Component {
           }
 
 
-          <Route exact path='/' component={Home} />
+          <Route exact path="/" component={Home} />
           <Route path="/signup" render={() => (
           <SignUp onSignUp={this.setCurrentUser.bind(this)} />
       )} />
+
       <Route path="/signin" render={() => (
         <SignIn onSignIn={this.setCurrentUser.bind(this)} />
       )} />
@@ -84,6 +90,7 @@ class App extends Component {
         </div>
 
 
+      </div>
       </div>
       </Router>
     );

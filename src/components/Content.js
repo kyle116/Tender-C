@@ -71,7 +71,7 @@ class Content extends React.Component{
       {this.state.location
          ? (
         <div>
-          <button className="btn btn-success" onClick={this.clearLocation.bind(this)}>Change Location</button>
+          <a className="btn btn-skin btn-default" onClick={this.clearLocation.bind(this)}>Change Location</a>
           <br />
           <NavLink to="/matches">See your Matches</NavLink>
           <div className="card">

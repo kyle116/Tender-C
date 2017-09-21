@@ -3,24 +3,58 @@ import {NavLink} from 'react-router-dom';
 
 const NavBar = (props) => {
   return (
-    <ul className="NavBar navbar navbar-default">
+    <div id="navigation">
+      <nav className="navbar navbar-custom" role="navigation">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2">
+              <div className="site-logo">
+                <NavLink to="/" className="brand">Tender</NavLink>
+              </div>
+            </div>
 
-      <li className="nav-links"><NavLink exact to='/'><img className="legit-logo" src="favicon.png" />Home</NavLink></li>
-      {props.currentUser ?
-        <span className="display-choice">
-        {props.currentUser ?
-          <p className="username nav-links">Current User: {props.currentUser.name}</p> : null}
-      <li className="nav-links"><NavLink to='/signout'>Sign Out</NavLink></li>
-      <li className="nav-links"><NavLink to='/content'>Hook Up</NavLink></li>
-      </span>
-      :
-      (
-      <span className="sign-in-up">
-        <li className="nav-links"><NavLink to='/signup'>Sign Up</NavLink></li>
-        <li className="nav-links"><NavLink to='/signin'>Sign In</NavLink></li>
-      </span>
-      )}
-      </ul>
+
+            <div className="col-md-10">
+
+              <div className="navbar-header">
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                  <i className="fa fa-bars"></i>
+                </button>
+              </div>
+
+              <div className="collapse navbar-collapse" id="menu">
+
+                  {props.currentUser ?
+                    <ul className="nav navbar-nav navbar-right">
+                      <li className="active"><NavLink exact to='/'>Home</NavLink></li>
+                      <li><NavLink to="/matches">Current User: {props.currentUser.name}</NavLink></li>
+                      <li><NavLink to="/signout">Sign Out</NavLink></li>
+                      <li><NavLink to="/content">Hook Up</NavLink></li>
+                      <li><NavLink to="#about">About Us</NavLink></li>
+                      <li><NavLink to="#works">Works</NavLink></li>
+                      <li><NavLink to="#contact">Contact</NavLink></li>
+                    </ul>
+                  :
+                  (
+                    <ul className="nav navbar-nav navbar-right">
+                      <li className="active"><NavLink exact to='/'>Home</NavLink></li>
+                      <li><NavLink to="/signup">Sign Up</NavLink></li>
+                      <li><NavLink to="/signin">Sign In</NavLink></li>
+                      <li><NavLink to="#about">About Us</NavLink></li>
+                      <li><NavLink to="#works">Works</NavLink></li>
+                      <li><NavLink to="#contact">Contact</NavLink></li>
+                    </ul>
+                  )}
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+
   )
 }
 
