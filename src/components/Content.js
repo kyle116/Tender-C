@@ -10,19 +10,12 @@ class Content extends React.Component{
   }
 
   componentDidMount(){
-    // this.props.dad.setLoading()
-    // if (this.props.token) {
-    //   console.log('wrokg');
-    //   this.setState({location: null})
-      // this.props.dad.setLoading()
-    // } else {
+    this.props.dad.setLoading()
+    auth.getYelpInfo(this.state.location).then(data => {
+      console.log(data);
+      this.setState({businessData: data, images: data.photos})
       this.props.dad.setLoading()
-      auth.getYelpInfo(this.state.location).then(data => {
-        console.log(data);
-        this.setState({businessData: data, images: data.photos})
-        this.props.dad.setLoading()
-      })
-    // }
+    })
   }
 
 
