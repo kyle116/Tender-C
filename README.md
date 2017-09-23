@@ -30,7 +30,7 @@ Run nodemon on the server folder
 
 ### Website screenshot
 
-![screenshot](https://github.com/bkmorgan3/Tender-Client/blob/master/public/Screenshot.png)
+![screenshot](https://github.com/kyle116/Tender-C/blob/master/public/Screenshot.png)
 
 
 
