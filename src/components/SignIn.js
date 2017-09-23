@@ -9,6 +9,8 @@ class SignIn extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault()
+    this.props.dad.signOut()
+    console.log('working');
     const formData = {
       email: this.refs.email.value,
       password: this.refs.password.value
@@ -26,12 +28,12 @@ class SignIn extends Component {
       this.state.shouldRedirect
       ? <Redirect to='/content' />
       : (
-        <div className="LogIn">
-          <h1>Sign In</h1>
+        <div className="login">
+          <h1 className="login-title">Sign In</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input className="form-control" ref="email" type="text" placeholder="Email" />
             <input className="form-control" ref="password" type="password" placeholder="Password" />
-            <button className="btn btn-primary">Sign In</button>
+            <button className="btn btn-primary login-button">Sign In</button>
           </form>
         </div>
       )

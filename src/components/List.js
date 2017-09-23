@@ -11,7 +11,7 @@ class List extends React.Component{
 
   componentDidMount() {
     auth.getBusinessList().then(user => {
-      this.setState({currentUser:user, matches: user.businesses})
+      this.setState({currentUser: user, matches: user.businesses})
     })
   }
 
@@ -23,11 +23,14 @@ class List extends React.Component{
 
   render() {
     return (
-      <div className="container">
-      <NavLink to="/edituser">edit your profile</NavLink>
+      <div className="list-container">
+      <NavLink to="/edituser">Edit Your Profile</NavLink>
         <div className="matches-list">
           <ul className="list">
-            {this.state.matches.map((business, i) => (
+            {this.state.matches.length === 0 ?
+              <h2>No Matches Yet</h2>
+              :
+              this.state.matches.map((business, i) => (
               <div className="listing" key={i}>
                 <img className="returned-images" src={business.images[0]} />
                 <li className="addresses" key={i}>
@@ -35,7 +38,7 @@ class List extends React.Component{
                   {business.address}<br />
                   {business.city}, {business.state} {business.zip_code}
                 </li>
-                <button className=" btn-xs btn btn-danger delete-listing" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button>
+                <button className="btn-xs btn btn-danger delete-listing" onClick={this.deleteBusiness.bind(this, {userId: this.state.currentUser._id, id: business._id})}>X</button>
                </div>
             ))}
           </ul>

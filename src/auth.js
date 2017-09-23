@@ -13,30 +13,26 @@ class AuthClient {
     })
   }
 
-getYelpInfo(locationData){
-  return this.request({method: 'GET', url: `/yelp/${locationData}`})
-    .then((response) => response.data)
-}
-addBusinessList(businessData) {
-   return this.request({method: 'POST', url: `/${this.getCurrentUser()._id}/matches`, data: businessData})
-     .then((response) => response.data)
- }
+  getYelpInfo(locationData, demoToken){
+    return this.request({method: 'GET', url: `/yelp/${locationData}`})
+      .then((response) => response.data)
+  }
+  addBusinessList(businessData) {
+    return this.request({method: 'POST', url: `/${this.getCurrentUser()._id}/matches`, data: businessData})
+      .then((response) => response.data)
+  }
 
- getBusinessList() {
-   return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
-     .then((response) => {
+  getBusinessList() {
+    return this.request({method: 'GET', url: `/${this.getCurrentUser()._id}/matches`})
+      .then((response) => {
        return response.data
-     })
- }
- setLocationYelp(locationData){
-   return this.request({method: "GET", url: `/yelp/${locationData}`})
-    .then((response) => response.data)
- }
+      })
+  }
 
- deleteBus(obj) {
-   return this.request({method: 'DELETE', url: `/${obj.userId}/${obj.id}/delete`})
-    .then(response => response.data)
- }
+  deleteBus(obj) {
+    return this.request({method: 'DELETE', url: `/${obj.userId}/${obj.id}/delete`})
+      .then(response => response.data)
+  }
 
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/users', data: userInfo})

@@ -47,8 +47,11 @@ const Home = (props) => {
 				    <div className="text-center">
 	            <p>Enter your location and we will show you food from your area</p>
 					    <p>Select yes on it and you will see the match information</p>
-              <iframe width="420" height="315" src="https://www.youtube.com/embed/E58qLXBfLrs?autoplay=1"></iframe>
-					    <a href="#service" className="btn btn-skin btn-scroll">What we do</a>
+              <div className="row">
+                <div className="col-md-6 col-md-offset-3 text-center">
+                  <a href={props.demo ? "/demo" : "/signin"} className="learn-more-btn btn-scroll">Try It Out</a>
+                </div>
+              </div>
 				    </div>
           </div>
 		    </div>
@@ -62,7 +65,7 @@ const Home = (props) => {
 				<div className="col-lg-8 col-lg-offset-2">
 					<div>
   					<div className="section-heading text-center">
-    					<h2 className="h-bold">Get in touch with us</h2>
+    					<h2 className="h-bold">Contact Us</h2>
     					<div className="divider-header"></div>
   					</div>
 					</div>
@@ -70,34 +73,9 @@ const Home = (props) => {
 			</div>
 		</div>
 
-		<div className="container">
-			<div className="row marginbot-80">
-				<div className="col-md-8 col-md-offset-2">
-					<form id="contact-form">
-  					<div className="row marginbot-20">
-  						<div className="col-md-6 xs-marginbot-20">
-  							<input type="text" className="form-control input-lg" id="name" placeholder="Enter name" required="required" />
-  						</div>
-  						<div className="col-md-6">
-  							<input type="email" className="form-control input-lg" id="email" placeholder="Enter email" required="required" />
-  						</div>
-  					</div>
-  					<div className="row">
-  						<div className="col-md-12">
-  							<div className="form-group">
-  								<input type="text" className="form-control input-lg" id="subject" placeholder="Subject" required="required" />
-  							</div>
-  							<div className="form-group">
-  								<textarea name="message" id="message" className="form-control" rows="4" cols="25" required="required"
-  									placeholder="Message"></textarea>
-  							</div>
-  							<button type="submit" className="btn btn-skin btn-lg btn-block" id="btnContactUs">
-  								Send Message</button>
-  						</div>
-  					</div>
-					</form>
-				</div>
-			</div>
+		<div>
+      <p>Email: tender@tender.com</p>
+      <p>Phone: (123)456-7890</p>
 		</div>
 	</section>
 </div>

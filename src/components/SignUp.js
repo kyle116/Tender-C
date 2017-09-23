@@ -39,7 +39,7 @@ class SignUp extends Component {
             <input className="form-control" ref="email" type="text" placeholder="Email" />
             <input className="form-control" ref="password" type="password" placeholder="Password" />
             <input className="form-control" ref="confirmPassword" type="password" placeholder="Confirm Password" />
-            <button className="btn btn-primary">Sign Up!</button>
+            <button className="btn btn-primary btn-signin">Sign Up!</button>
           </form>
         </div>
       )

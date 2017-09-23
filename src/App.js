@@ -24,7 +24,16 @@ import EditUser from './components/EditUser'
 class App extends Component {
   state = {
     currentUser: auth.getCurrentUser(),
-    loading: false
+    loading: false,
+    demo: true
+  }
+
+  componentDidMount() {
+    const formData = {
+      email: "demo@demo.com",
+      password: "demo"
+    }
+    auth.signIn(formData)
   }
 
   setCurrentUser() {
@@ -45,15 +54,15 @@ class App extends Component {
 
   signOut(){
     auth.clearToken()
-    this.setState({currentUser: null})
+    this.setState({currentUser: null, demo: false})
   }
 
   render() {
     const currentUser = this.state.currentUser
     return (
       <Router>
-        <div>
-      <NavBar currentUser={this.state.currentUser}/>
+      <div>
+      <NavBar currentUser={this.state.currentUser} demo={this.state.demo} />
       <div className="App">
         <div className="content">
           {this.state.loading
@@ -64,29 +73,31 @@ class App extends Component {
             )
             : null
           }
+          <Route exact path="/" render={() => <Home demo={this.state.demo} />} />
 
-
-          <Route exact path="/" component={Home} />
           <Route path="/signup" render={() => (
-          <SignUp onSignUp={this.setCurrentUser.bind(this)} />
-      )} />
+            <SignUp onSignUp={this.setCurrentUser.bind(this)} />
+          )} />
 
-      <Route path="/signin" render={() => (
-        <SignIn onSignIn={this.setCurrentUser.bind(this)} />
-      )} />
-      <Route path="/signout" render={() => (
-        <SignOut onSignOut={this.signOut.bind(this)} />
-      )} />
+          <Route path="/signin" render={() => (
+            <SignIn onSignIn={this.setCurrentUser.bind(this)} dad={this}/>
+          )} />
+          <Route path="/signout" render={() => (
+            <SignOut onSignOut={this.signOut.bind(this)} />
+          )} />
 
-      <Route path="/content" render={() => (
-        currentUser ? <Content dad={this} /> : <Redirect to="/signin" />)} />
+          <Route path="/content" render={() => (
+            currentUser ? <Content dad={this} /> : <Redirect to="/signin" />)} />
 
-      <Route path="/matches" component={() => (
-        currentUser ? <List /> : <Redirect to="/signin" /> )} />
+          <Route path="/matches" render={() => (
+            currentUser ? <List demo={this.state.demo} /> : <Redirect to="/signin" /> )} />
 
           <Route path="/edituser" render={() => (
             <EditUser dad={this} />
           )} />
+
+          <Route path="/demo" render={() => (
+            <Content dad={this} location={null} currentUser={this.state.currentUser} demo={this.state.demo} /> )} />
         </div>
 
 

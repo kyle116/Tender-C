@@ -24,27 +24,20 @@ const NavBar = (props) => {
 
               <div className="collapse navbar-collapse" id="menu">
 
-                  {props.currentUser ?
-                    <ul className="nav navbar-nav navbar-right">
-                      <li className="active"><NavLink exact to='/'>Home</NavLink></li>
-                      <li><NavLink to="/matches">Current User: {props.currentUser.name}</NavLink></li>
-                      <li><NavLink to="/signout">Sign Out</NavLink></li>
-                      <li><NavLink to="/content">Hook Up</NavLink></li>
-                      <li><NavLink to="#about">About Us</NavLink></li>
-                      <li><NavLink to="#works">Works</NavLink></li>
-                      <li><NavLink to="#contact">Contact</NavLink></li>
-                    </ul>
-                  :
-                  (
+                  {!props.currentUser || props.demo ?
                     <ul className="nav navbar-nav navbar-right">
                       <li className="active"><NavLink exact to='/'>Home</NavLink></li>
                       <li><NavLink to="/signup">Sign Up</NavLink></li>
                       <li><NavLink to="/signin">Sign In</NavLink></li>
-                      <li><NavLink to="#about">About Us</NavLink></li>
-                      <li><NavLink to="#works">Works</NavLink></li>
-                      <li><NavLink to="#contact">Contact</NavLink></li>
                     </ul>
-                  )}
+                  :
+                  <ul className="nav navbar-nav navbar-right">
+                    <li className="active"><NavLink exact to='/'>Home</NavLink></li>
+                    <li><NavLink to="/matches">Current User: {props.currentUser.name}</NavLink></li>
+                    <li><NavLink to="/signout">Sign Out</NavLink></li>
+                    <li><NavLink to="/content">Hook Up</NavLink></li>
+                  </ul>
+                  }
               </div>
 
 

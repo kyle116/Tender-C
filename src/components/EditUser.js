@@ -33,9 +33,9 @@ class EditUser extends Component {
   render(){
     return (
       this.state.shouldRedirect ? <Redirect to="/matches" /> :
-        (<div>
-          <h1>Edit Your Info</h1>
-          <form  onSubmit={this.handleFormEdit.bind(this)}>
+        (<div className="edit-container">
+          <h1 className="edit-title">Edit Your Info</h1>
+          <form className="edit-form" onSubmit={this.handleFormEdit.bind(this)}>
             <input ref="name" type="text" placeholder="Name" />
             <input ref="email" type="text" placeholder="Email" />
             <input ref="password" type="password" placeholder="Password" />

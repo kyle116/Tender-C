@@ -10,11 +10,19 @@ class Content extends React.Component{
   }
 
   componentDidMount(){
-    this.props.dad.setLoading()
-    auth.getYelpInfo(this.state.location).then(data => {
-      this.setState({businessData: data, images: data.photos})
+    // this.props.dad.setLoading()
+    // if (this.props.token) {
+    //   console.log('wrokg');
+    //   this.setState({location: null})
+      // this.props.dad.setLoading()
+    // } else {
       this.props.dad.setLoading()
-    })
+      auth.getYelpInfo(this.state.location).then(data => {
+        console.log(data);
+        this.setState({businessData: data, images: data.photos})
+        this.props.dad.setLoading()
+      })
+    // }
   }
 
 
@@ -52,7 +60,7 @@ class Content extends React.Component{
   setLocation(){
     const locationData = this.refs.location.value
     localStorage.setItem('location', locationData)
-    auth.setLocationYelp(locationData).then(data => {
+    auth.getYelpInfo(locationData).then(data => {
       this.setState({businessData: data, images: data.photos, location: locationData})
     })
   }
@@ -62,37 +70,36 @@ class Content extends React.Component{
     this.setState({location: null})
   }
 
-
-
-
   render(){
     return (
-      <div>
+      <div className="content">
       {this.state.location
          ? (
         <div>
-          <a className="btn btn-skin btn-default" onClick={this.clearLocation.bind(this)}>Change Location</a>
-          <br />
-          <NavLink to="/matches">See your Matches</NavLink>
+          <a className="btn btn-skin btn-default change-location" onClick={this.clearLocation.bind(this)}>Change Location</a>
+          <NavLink to="/matches" className="match-link" >See your Matches</NavLink>
           <div className="card">
 
-
-            <img className="card-img-top food-pic" src={this.state.images[0]} />
+            <div className="picture-border">
+              <img className="card-img-top food-pic" src={this.state.images[0]} />
+            </div>
             <div className="card-block buttons-container">
-              <div className="button-yes">
-                <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times-circle fa-5x" aria-hidden="true"></i></button>
-              </div>
               <div className="button-no">
-                <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check-circle fa-5x" aria-hidden="true"></i></button>
+                <button className="btn btn-danger choices" onClick={this.unmatchButton.bind(this)}><i className="fa fa-times fa-2x" aria-hidden="true"></i></button>
+              </div>
+              <div className="button-yes">
+                <button className="btn btn-success choices" onClick={this.matchButton.bind(this)}><i className="fa fa-check fa-2x" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
         </div>
          ) :
          <div>
-           <input id="city-search" className="form-control" ref="location" type="text" placeholder="city" />
-           <br />
-           <button id="city-btn" className="btn btn-success" onClick={this.setLocation.bind(this)}>Submit</button>
+           <h1 className="location-title">Enter Location</h1>
+
+             <input id="city-search" className="form-control" ref="location" type="text" placeholder="City or Zip Code" />
+             <button id="city-btn" className="btn btn-success" onClick={this.setLocation.bind(this)}>Submit</button>
+
          </div>}
       </div>
     )
